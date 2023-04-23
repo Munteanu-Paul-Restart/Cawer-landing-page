@@ -1,0 +1,316 @@
+:root {
+    --COLOR-PRIMARY: rgb(5, 5, 5);
+    --COLOR-SECONDARY: rgb(10, 10, 10);
+    --COLOR-TERNARY: rgb(20, 20, 20);
+    --COLOR-ACCENT: rgb(0, 80, 150);
+    --COLOR-OUTLINE: rgb(100, 100, 100);
+    --COLOR-FOCUS: rgb(50, 50, 50);
+    --COLOR-TEXT-PRIMARY: rgb(250, 250, 250);
+    --COLOR-TEXT-SECONDARY: rgb(150, 150, 150);
+
+    --OUTLINE-WIDTH: .5px;
+}
+
+/* @import url('https://fonts.googleapis.com/css2?family=Sono:wght@500&display=swap'); */
+@font-face {
+    font-family: 'Sono';
+    font-style: normal;
+    font-weight: 200;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/sono/v1/aFT97PNiY3U2Cqf_aYEN64CYaK18YWJEsV6u-QLiOsxVhEWtFX55.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Sono';
+    font-size: 1em;
+    color: var(--COLOR-TEXT-PRIMARY);
+    padding: 0px;
+    margin: 0px;
+    text-decoration: none;
+
+    transition: background-color 0.2s;
+}
+
+body  {
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    background-color: var(--COLOR-PRIMARY);
+    font-size: 0.8em;
+}
+
+img {
+    height: 100%;
+}
+
+.column {
+    height: 100%;
+    display: flex;
+}
+
+.left, .right {
+    flex-grow: 1;
+}
+
+.center {
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    outline: solid var(--OUTLINE-WIDTH) var(--COLOR-OUTLINE);
+    background: linear-gradient(90deg, var(--COLOR-SECONDARY) 50%, var(--COLOR-TERNARY) 50%);
+}
+
+.login, .logo, .header, .footer {
+    width: 100%;
+    height: 150px;
+}
+
+/* --- SIDES --- */
+.login, .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-size: 1.5em;
+}
+
+.login a, .login p {
+    color: var(--COLOR-TEXT-SECONDARY);
+    white-space: break-spaces;
+    transition: color 0.2s;
+}
+
+.login a:hover {
+    color: var(--COLOR-TEXT-PRIMARY);
+}
+
+.logo {
+    justify-content: safe;
+    font-size: 2em;
+}
+
+/* --- CENTER --- */
+.header, .footer {
+    outline: var(--OUTLINE-WIDTH) solid var(--COLOR-OUTLINE);
+    background-color: var(--COLOR-SECONDARY);
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    border-radius: 0px 0px 15px 15px;
+}
+
+.top {
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.searchBar {
+    width: 60%;
+    border-radius: 200px;
+    background-color: var(--COLOR-PRIMARY);
+    outline: solid var(--OUTLINE-WIDTH) var(--COLOR-OUTLINE);
+    border-style: none;
+    padding: 15px 15px;
+}
+
+.searchBar:hover {
+    background-color: var(--COLOR-FOCUS);
+}
+
+.searchBar:focus {
+    background: rgb(0, 0, 0);
+}
+
+.top .logo, .top .login {
+    height: 90%;
+    width: 20%;
+    font-size: 1em;
+}
+
+.top .logo img {aspect-ratio: 1;}
+
+.tabs {
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.tab {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--COLOR-SECONDARY);
+    border-radius: 15px 15px 0 0;
+
+    font-size: 1.5em;
+}
+
+.tab:hover {
+    background-color: var(--COLOR-FOCUS);
+}
+
+/* BODY */
+.content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.feed, .text {
+    height: 100%;
+    width: 50%;
+}
+
+.text {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-left: var(--OUTLINE-WIDTH) solid var(--COLOR-OUTLINE);
+    text-align: justify;
+    text-align-last: center;
+    font-size: 1.5em;
+}
+
+.feed {
+    padding: 5px;
+}
+
+.post {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    overflow-y: overlay; /* supprime ça pour enlever la scrollbar */
+    outline: solid 1px var(--COLOR-OUTLINE);
+    background-color: var(--COLOR-SECONDARY);
+}
+
+.post::-webkit-scrollbar {
+    width: 10px;
+}
+
+.post::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 100px;
+}
+
+.post:hover::-webkit-scrollbar-thumb {
+    background-color: var(--COLOR-TERNARY);
+    border-radius: 100px;
+}
+
+.post img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+}
+
+/* FOOTER */
+.footer {
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 0.8em;
+    border-radius: 15px 15px 0 0;
+}
+
+.footer p a, .footer p {
+    color: var(--COLOR-TEXT-SECONDARY);
+}
+
+.footer p a {
+    text-decoration: underline;
+}
+
+
+/* RESPONSIVENESS */
+@media screen and (min-width: 1280px) {
+    .top .logo, .top .login {
+        display: none;
+    }
+
+    .searchBar {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .left .logo, .right .login {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .top .logo p, .top .login p {
+        display: none;
+    }
+
+    .top .login {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .tabs, .content, .footer {
+        font-size: .7em;
+    }
+}
+
+/* NOUVEAU POUR L'EXERCICE JS */
+.selector {
+    position: absolute;
+    width: 80%;
+    height: 10%;
+    bottom: 0;
+    border-radius: 5px 5px 0 0;
+    backdrop-filter: invert();
+    transition: height 0.2s;
+}
+
+.tab:hover {
+    background-color: unset;
+}
+
+.glow {
+    filter: drop-shadow(0 0 10px rgb(0, 0, 255));
+}
+
+.logo {
+    transition: filter 0.2s;
+}
+
+.column.center {transition: filter 0.2s;}
+.column.center:hover {filter: drop-shadow(0 0 10px rgb(0, 0, 255, 0.5));}
+
+#wut {
+    display: none;
+    left: 0;
+    top: 0;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    border-radius: 1000px;
+    width: 40px;
+    height: 40px;
+    backdrop-filter: invert();
+}
